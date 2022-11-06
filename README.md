@@ -34,7 +34,7 @@ The recursion "bottoms out" when the sequence to be sorted has length 1, in
 which case there is no work to be done, since every sequence of length 1 is
 already sorted.
 
-![](http://personal.kent.edu/~rmuhamma/Algorithms/MyAlgorithms/Sorting/Gifs/mergeSort.gif)
+![](mergeSort.gif)
 
 ## Analyzing divide-and-conquer algorithms
 
