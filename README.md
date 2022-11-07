@@ -10,13 +10,13 @@ these solutions to create a solution to the original problem.
 The divide-and-conquer paradigm involves three steps at each level of the recursion:
 
 **Divide** the problem into a number of subproblems that are smaller instances
-*of the same problem.
+of the same problem.
 
 **Conquer** the subproblems by solving them recursively. If the subproblems
-*sizes are small enough, just solve the subproblems in a straightforward manner.
+sizes are small enough, just solve the subproblems in a straightforward manner.
 
 **Combine** the solutions to the subproblems into the solution for the original
-*problem.
+problem.
 
 ## Merge sort
 
