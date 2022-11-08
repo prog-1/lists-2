@@ -62,8 +62,13 @@ func Split(l *list.List) (a, b *list.List) {
 
 // MergeSort sorts a list using the merge-sort algorithm.
 func MergeSort(l *list.List) *list.List {
-	// TODO
-	return nil
+	if l.Len() == 1 {
+		return l
+	}
+	a, b := Split(l)
+	a = MergeSort(a)
+	b = MergeSort(b)
+	return Merge(a, b)
 }
 
 func main() {
@@ -78,13 +83,16 @@ func main() {
 	//b.PushBack(2)
 	//b.PushBack(4)
 	//l := Merge(&a, &b)
-	a, b := Split(&l)
-	for i := a.Front(); i != nil; i = i.Next() {
+	// a, b := Split(&l)
+	// for i := a.Front(); i != nil; i = i.Next() {
+	// 	fmt.Println(i.Value)
+	// }
+	// fmt.Println("-----------------")
+	// for i := b.Front(); i != nil; i = i.Next() {
+	// 	fmt.Println(i.Value)
+	// }
+	r := MergeSort(&l)
+	for i := r.Front(); i != nil; i = i.Next() {
 		fmt.Println(i.Value)
 	}
-	fmt.Println("-----------------")
-	for i := b.Front(); i != nil; i = i.Next() {
-		fmt.Println(i.Value)
-	}
-
 }
