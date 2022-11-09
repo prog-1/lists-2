@@ -43,3 +43,22 @@ func TestSplit(t *testing.T) {
 		}
 	}
 }
+
+func TestMerge(t *testing.T) {
+	for _, tc := range []struct {
+		a, b, want []int
+	}{
+
+		{[]int{1, 2, 3, 4, 5, 6, 7, 8, 9}, []int{}, []int{1, 2, 3, 4, 5, 6, 7, 8, 9}},
+		{[]int{1, 2, 12, 32, 21, 321}, []int{1}, []int{1, 1, 2, 12, 32, 21, 321}},
+		{[]int{-123, 1, 2, 54, 101, 123}, []int{1, 2, 12, 12, 54}, []int{-123, 1, 1, 2, 2, 12, 12, 54, 54, 101, 123}},
+		{[]int{}, []int{}, nil},
+		{[]int{1}, []int{1, 2, 12, 32, 21, 321}, []int{1, 1, 2, 12, 32, 21, 321}},
+	} {
+		a, b := sliceToList(tc.a), sliceToList(tc.b)
+		l := Merge(a, b)
+		if got := listToSlice(l); !reflect.DeepEqual(got, tc.want) {
+			t.Errorf("Split(%v,%v) = %v, want %v", tc.a, tc.b, got, tc.want)
+		}
+	}
+}

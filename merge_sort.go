@@ -7,38 +7,30 @@ import (
 )
 
 // Merge combines two sorted lists into a single sorted list.
-// func Merge(a, b *list.List) (c *list.List) {
-// 	p := &c
-// 	// if a == nil {
-// 	// 	return b
-// 	// } else if b == nil {
-// 	// 	return a
-// 	// }
-// 	// n := b.Len() + a.Len()
-// 	// switch {
-// 	// case a == nil:
-// 	// 	return b
-// 	// case b == nil:
-// 	// 	return a
-// 	// case a1.Value < b1.Value:
-// 	// 	a = Merge(a.Next(), b)
-// 	// 	return a
-// 	// default:
-// 	// 	b = Merge(a, b1.Next())
-// 	// 	return b
-// 	// }
-// 	a1 := a.Front()
-// 	b1 := b.Front()
-// 	for a != nil && b != nil {
-// 		if a1.Value < b1.Value {
-// 			*p, a = a, a1.
-// 		} else {
-// 			p.Next = l2
-// 			l2 = l2.Next
-// 		}
-// 		return nil
-// 	}
-// }
+func Merge(a, b *list.List) *list.List {
+	l := new(list.List)
+	a1 := a.Front()
+	b1 := b.Front()
+	for a1 != nil && b1 != nil {
+		list.Print(l)
+		if a1.Value < b1.Value {
+			l.PushBack(a1.Value)
+			a1 = a1.Next()
+		} else {
+			l.PushBack(b1.Value)
+			b1 = b1.Next()
+		}
+	}
+	for a1 != nil {
+		l.PushBack(a1.Value)
+		a1 = a1.Next()
+	}
+	for b1 != nil {
+		l.PushBack(b1.Value)
+		b1 = b1.Next()
+	}
+	return l
+}
 
 // Split splits a list into two lists with approximately the same length,
 // i.e. |a.Len() - b.Len()| <= 1.
@@ -67,7 +59,7 @@ func Split(l *list.List) (a, b *list.List) {
 
 // MergeSort sorts a list using the merge-sort algorithm.
 func MergeSort(l *list.List) *list.List {
-	// TODO
+
 	return nil
 }
 
