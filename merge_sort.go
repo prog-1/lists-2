@@ -6,8 +6,8 @@ import (
 
 // Merge combines two sorted lists into a single sorted list.
 func Merge(a, b *list.List) *list.List {
-	var list list.List
 	curA, curB := a.Front(), b.Front()
+	var list list.List
 	var min *list.Element
 	for {
 		if curA != nil && curB != nil && curA.Value < curB.Value {
@@ -23,7 +23,6 @@ func Merge(a, b *list.List) *list.List {
 		}
 		list.PushBack(min.Value)
 	}
-
 	return &list
 }
 
