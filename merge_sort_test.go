@@ -15,37 +15,36 @@ func CaseNil() *list.List {
 
 func CaseZero() *list.List {
 	l := new(list.List)
-	l.PushBack(0)
+	for i := 0; i != 10000; i++ {
+		l.PushBack(0)
+	}
 	return l
 }
 
 func CaseNormal() *list.List {
 	l := new(list.List)
-	l.PushBack(0)
-	l.PushBack(3)
-	l.PushBack(1)
-	l.PushBack(4)
-	l.PushBack(90)
+	for i := 0; i != 100000; i++ {
+		l.PushBack(i)
+	}
 	return l
 }
 func CaseDuplicate() *list.List {
 	l := new(list.List)
-	l.PushBack(0)
-	l.PushBack(3)
-	l.PushBack(90)
-	l.PushBack(3)
-	l.PushBack(90)
-	l.PushBack(0)
+	for i := 0; i != 100000; i++ {
+		l.PushBack(i)
+		l.PushBack(i - 1)
+		l.PushBack(i)
+		l.PushBack(i + 1)
+	}
 	return l
 }
 func CaseNegative() *list.List {
 	l := new(list.List)
-	l.PushBack(-5)
-	l.PushBack(3)
-	l.PushBack(1)
-	l.PushBack(-98)
-	l.PushBack(90)
-	l.PushBack(102)
+	for i := -10000; i != 10000; i++ {
+		l.PushBack(i)
+		l.PushBack(i - 1)
+		l.PushBack(i + 1)
+	}
 	return l
 }
 
@@ -55,4 +54,21 @@ func TestMergeSort(t *testing.T) {
 	MergeSort(CaseNegative())
 	MergeSort(CaseDuplicate())
 	MergeSort(CaseNil())
+}
+
+// avg
+func BenchmarkCaseZero(b *testing.B) { //2s
+	MergeSort(CaseZero())
+}
+func BenchmarkN(b *testing.B) { //9s
+	MergeSort(CaseNormal())
+}
+func BenchmarkNe(b *testing.B) {
+	MergeSort(CaseNegative()) //3s
+}
+func BenchmarkNil(b *testing.B) { //1s
+	MergeSort(CaseNil())
+}
+func BenchmarkD(b *testing.B) { // this benchmark should be slowest
+	MergeSort(CaseDuplicate()) //2s avg???? in smaller numbers it was much slower...
 }

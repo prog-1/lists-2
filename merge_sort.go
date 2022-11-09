@@ -52,12 +52,13 @@ func Split(l *list.List) (a, b *list.List) {
 // MergeSort sorts a list using the merge-sort algorithm.
 func MergeSort(l *list.List) *list.List {
 	var c *list.List // sholdnt we split in len(l) lists or just 2
+	c = l
 	if l.Len() <= 1 {
 		return l
 	}
 	for i := l.Len(); i != 0; {
 		i = i / 2
-		c = Merge(Split(l))
+		c = Merge(Split(c))
 	}
 	return c
 }
