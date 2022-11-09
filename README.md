@@ -40,51 +40,38 @@ already sorted.
 
 1. **Partition of elements in the array**
 
+   <details><summary>How are elements partitioned (ratio) in merge sort and quick sort?</summary>
    In the merge sort, the array is parted into just 2 halves (i.e. $n/2$).
 
    In case of quick sort, the array is parted into any ratio. There is no
    compulsion of dividing the array of elements into equal parts in quick sort.
+   </details>
 
 2. **Worst case complexity**
 
+   <details><summary>What is the average and the worst case complexity of quick sort and merge sort?</summary>
    The worst case complexity of quick sort is $O(n^2)$ as there is need of lot of
    comparisons in the worst condition.
 
    In merge sort, worst case and average case has same complexities $O(n\log n)$.
+   </details>
 
 3. **Additional storage space requirement**
 
+   <details><summary>Can quick sort and merge sort sort arrays/slices in-place?</summary>
    Merge sort is not in place because it requires additional memory space to
    store the auxiliary arrays.
 
    The quick sort is in place as it doesn’t require any additional storage.
+   </details>
 
-4. **Efficiency**
+4. **Preferred for**
 
-   Merge sort is more efficient and works faster than quick sort in case of
-   larger array size or datasets.
-   
-   Quick sort is more efficient and works faster than merge sort in case of
-   smaller array size or datasets.
-
-5. **Sorting method**
-
-   The quick sort is internal sorting method where the data is sorted in main memory.
-
-   The merge sort is external sorting method in which the data that is to be
-   sorted cannot be accommodated in the memory and needed auxiliary memory for
-   sorting.
-
-6. **Preferred for**
-
+   <details><summary>Which sorting (quick sort/merge sort) is preferred for arrays/linked lists?</summary>
    Quick sort is preferred for arrays.
 
    Merge sort is preferred for linked lists.
-
-7. **Locality of reference**
-
-   Quicksort exhibits good cache locality and this makes quicksort faster than
-   merge sort.
+   </details>
 
 ## Analyzing divide-and-conquer algorithms
 
