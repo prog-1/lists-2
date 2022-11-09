@@ -53,6 +53,8 @@ func TestMerge(t *testing.T) {
 		{"8", List(1, 2, 4), List(1, 3, 4), List(1, 1, 2, 3, 4, 4)},
 		{"9", List(1, 2, 3, 123), List(4, 5, 6, 51), List(1, 2, 3, 4, 5, 6, 51, 123)},
 		{"10", List(1, 2, 3, 7, 123), List(4, 5, 6, 51), List(1, 2, 3, 4, 5, 6, 7, 51, 123)},
+		{"11", List(1, 2, 3, 4, 5, 7), List(), List(1, 2, 3, 4, 5, 7)},
+		{"12", List(), List(2, 6, 9, 14), List(2, 6, 9, 14)},
 	} {
 		t.Run(fmt.Sprint(tc.name), func(t *testing.T) {
 			l1, l2 := tc.a(), tc.b()
