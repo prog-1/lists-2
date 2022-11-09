@@ -62,3 +62,22 @@ func TestMerge(t *testing.T) {
 		}
 	}
 }
+func TestMergeSort(t *testing.T) {
+	for _, tc := range []struct {
+		a, want []int
+	}{
+
+		{[]int{1, 2, 3, 4, 5, 6, 7, 8, 9}, []int{1, 2, 3, 4, 5, 6, 7, 8, 9}},
+		{[]int{5, 4, 3, 2, 1}, []int{1, 2, 3, 4, 5}},
+		{[]int{123, 2, 1, 54, -123, 101}, []int{-123, 1, 2, 54, 101, 123}},
+		{[]int{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}, []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}},
+		{[]int{1}, []int{1}},
+		{[]int{2, 1}, []int{1, 2}},
+	} {
+		l := sliceToList(tc.a)
+		l = MergeSort(l)
+		if got := listToSlice(l); !reflect.DeepEqual(got, tc.want) {
+			t.Errorf("Split(%v) = %v, want %v", tc.a, got, tc.want)
+		}
+	}
+}
