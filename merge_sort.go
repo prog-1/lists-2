@@ -6,8 +6,24 @@ import (
 
 // Merge combines two sorted lists into a single sorted list.
 func Merge(a, b *list.List) *list.List {
-	// TODO
-	return nil
+	curA, curB := a.Front(), b.Front()
+	var list list.List
+	var min *list.Element
+	for {
+		if curA != nil && curB != nil && curA.Value < curB.Value {
+			min, curA = curA, curA.Next()
+		} else if curA != nil && curB != nil && curA.Value > curB.Value {
+			min, curB = curB, curB.Next()
+		} else if curA != nil {
+			min, curA = curA, curA.Next()
+		} else if curB != nil {
+			min, curB = curB, curB.Next()
+		} else {
+			break
+		}
+		list.PushBack(min.Value)
+	}
+	return &list
 }
 
 // Split splits a list into two lists with approximately the same length,
