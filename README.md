@@ -58,7 +58,7 @@ already sorted.
 
 3. **Additional storage space requirement**
 
-   <details><summary>Can quick sort and merge sort sort arrays/slices in-place?</summary>
+   <details><summary>Can quick sort and merge sort arrays/slices in-place?</summary>
    Merge sort is not in place because it requires additional memory space to
    store the auxiliary arrays.
 
